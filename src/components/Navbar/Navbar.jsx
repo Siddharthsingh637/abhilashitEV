@@ -26,9 +26,11 @@ export default function Navbar() {
           {/* Logo */}
           <div className="shrink-0">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-linear-to-br from-green-800 to-gray-600 rounded-full flex items-center justify-center font-bold text-white text-lg shadow">
-                A
-              </div>
+              <img 
+                src="https://ik.imagekit.io/siddharth637/abhilashit/WhatsApp%20Image%202026-01-08%20at%2001.14.42.jpeg" 
+                alt="Logo" 
+                className="w-10 h-10 rounded-full object-cover shadow"
+              />
             </Link>
           </div>
           {/* All nav items right side */}

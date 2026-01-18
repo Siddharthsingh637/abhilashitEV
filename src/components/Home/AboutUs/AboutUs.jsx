@@ -2,37 +2,37 @@ import React from "react";
 
 export default function AboutUs() {
   return (
-    <section className="w-full py-16 px-4">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <section className="w-full py-12 sm:py-16 px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
         {/* Left: Text */}
         <div className="order-2 md:order-1">
-          <div className="inline-block px-3 py-1 rounded-full bg-linear-to-r from-green-100 to-green-200 text-sm font-semibold text-green-800 mb-6">
+          <div className="inline-block px-3 py-1 rounded-full bg-linear-to-r from-green-100 to-green-200 text-xs sm:text-sm font-semibold text-green-800 mb-4 sm:mb-6">
             About Our EV Showroom
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-tight">
             Driving the Future of Mobility
           </h2>
 
-          <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">
             Welcome to your destination for cutting-edge electric vehicles. We bring you the latest in EV technology, combining performance, style, and sustainability for a cleaner tomorrow.
           </p>
 
-          <p className="text-base text-gray-600 mb-6">
+          <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
             Our expert team is passionate about helping you find the perfect electric ride. Experience innovation, comfort, and reliability with every visit to our showroom.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <a
               href="/contact"
-              className="inline-block bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg font-medium shadow-md transition"
+              className="inline-block text-center bg-green-700 hover:bg-green-800 text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg font-medium shadow-md transition text-sm sm:text-base"
             >
               Learn more about us
             </a>
 
             <a
               href="#our-work"
-              className="inline-block text-green-700 hover:underline px-3 py-2 font-medium"
+              className="inline-block text-center text-green-700 hover:underline px-3 py-2 font-medium text-sm sm:text-base"
             >
               See our EV lineup
             </a>
@@ -59,20 +59,24 @@ export default function AboutUs() {
 
         {/* Right: Image card */}
         <div className="order-1 md:order-2 flex items-center justify-center">
-          <div className="w-full max-w-md bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="w-full max-w-md bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
             <picture>
-              <source srcSet="/about/about-image@2x.png" media="(min-width: 1024px)" />
+              {/* <source
+                srcSet="https://your-cdn.com/images/about-image@2x.png"
+                media="(min-width: 1024px)"
+              /> */}
               <img
-                src="/hero/image.png"
+                src="https://ik.imagekit.io/siddharth637/abhilashit/hero/image.png?updatedAt=1767707169075"
                 alt="Team collaborating on product design"
-                className="w-full h-80 object-cover"
+                className="w-full h-64 sm:h-72 md:h-80 object-cover"
                 loading="lazy"
               />
             </picture>
 
-            <div className="p-6">
-              <h3 className="text-lg font-semibold text-gray-900">Innovation Meets Sustainability</h3>
-              <p className="text-sm text-gray-600 mt-2">
+
+            <div className="p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900">Innovation Meets Sustainability</h3>
+              <p className="text-xs sm:text-sm text-gray-600 mt-2">
                 Discover a curated selection of electric vehicles designed for a smarter, greener future. Your journey to sustainable mobility starts here.
               </p>
             </div>
