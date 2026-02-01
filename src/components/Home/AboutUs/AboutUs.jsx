@@ -7,7 +7,7 @@ export default function AboutUs() {
         {/* Left: Text */}
         <div className="order-2 md:order-1">
           <div className="inline-block px-3 py-1 rounded-full bg-linear-to-r from-green-100 to-green-200 text-xs sm:text-sm font-semibold text-green-800 mb-4 sm:mb-6">
-            About Our EV Showroom
+            About Our EV Bikes
           </div>
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 leading-tight">
@@ -25,7 +25,7 @@ export default function AboutUs() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <a
               href="/contact"
-              className="inline-block text-center bg-green-700 hover:bg-green-800 text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg font-medium shadow-md transition text-sm sm:text-base"
+              className="inline-block text-center bg-black hover:bg-black-800 text-white px-5 py-2.5 sm:px-6 sm:py-3 font-medium shadow-md transition text-sm sm:text-base"
             >
               Learn more about us
             </a>
@@ -59,27 +59,19 @@ export default function AboutUs() {
 
         {/* Right: Image card */}
         <div className="order-1 md:order-2 flex items-center justify-center">
-          <div className="w-full max-w-md bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
+          <div className="w-full max-w-md bg-white overflow-hidden">
             <picture>
               {/* <source
                 srcSet="https://your-cdn.com/images/about-image@2x.png"
                 media="(min-width: 1024px)"
               /> */}
               <img
-                src="https://ik.imagekit.io/siddharth637/abhilashit/hero/image.png?updatedAt=1767707169075"
+                src="https://ik.imagekit.io/siddharth637/abhilashit/1769158274471.png"
                 alt="Team collaborating on product design"
-                className="w-full h-64 sm:h-72 md:h-80 object-cover"
+                className="w-full h-130 object-cover"
                 loading="lazy"
               />
             </picture>
-
-
-            <div className="p-4 sm:p-6">
-              <h3 className="text-base sm:text-lg font-semibold text-gray-900">Innovation Meets Sustainability</h3>
-              <p className="text-xs sm:text-sm text-gray-600 mt-2">
-                Discover a curated selection of electric vehicles designed for a smarter, greener future. Your journey to sustainable mobility starts here.
-              </p>
-            </div>
           </div>
         </div>
       </div>

@@ -9,10 +9,10 @@ export default function Home() {
   return (
     <div className="bg-gray-0 min-h-screen">
       <HeroWithEnquiry />
+      <ViewModels />
       <AboutUs />
       <Brand />
       <ServicebarWithForm />
-      <ViewModels />
       <SubDealerApply />
     </div>
   );

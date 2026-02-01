@@ -1,6 +1,6 @@
 export default function ModelCard({ model }) {
   return (
-    <div className="group relative rounded-xl sm:rounded-2xl transition-all duration-300 overflow-hidden">
+    <div className="group relative transition-all duration-300 overflow-hidden">
       {/* Image Container with good aspect ratio (16:10) */}
       <div className="relative w-full h-48 sm:h-60 md:h-[280px] overflow-hidden bg-linear-to-br from-gray-100 to-gray-200">
         <img

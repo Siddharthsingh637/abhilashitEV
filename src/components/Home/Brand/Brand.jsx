@@ -13,7 +13,7 @@ export default function Brand() {
             <div className="flex items-center justify-center p-4 sm:p-6 h-full min-h-[250px] sm:min-h-[300px] md:min-h-[400px]">
               <img
                 src="https://ik.imagekit.io/siddharth637/abhilashit/evimg.png?updatedAt=1764952635724"
-                alt="Heraldebike Scooter"
+                alt="Abhilashit Automobiles electric scooter"
                 className="max-w-[200px] sm:max-w-xs md:max-w-sm object-contain rounded-xl sm:rounded-2xl"
               />
             </div>
@@ -24,18 +24,19 @@ export default function Brand() {
             <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center">
               <div className="mb-4 sm:mb-6">
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
-                  HERALD E BIKE
+                  Abhilashit Automobiles
                 </h3>
                 <p className="text-base sm:text-lg text-emerald-700 font-medium mt-1">
-                  Green Revolution
+                  Driving the green revolution
                 </p>
               </div>
 
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl">
-                Heraldebike is accelerating the green revolution with high-performance,
-                reliable and stylish electric scooters built for everyday life. Our
-                products blend engineering precision with sustainable innovation to
-                deliver unmatched riding experience and long-term value.
+                Abhilashit Automobiles is accelerating the green revolution with
+                high-performance, reliable and stylish electric scooters built for
+                everyday life. Our products blend engineering precision with sustainable
+                innovation to deliver an unmatched riding experience and long-term value
+                for every customer.
               </p>
 
               {/* CTA BUTTONS */}

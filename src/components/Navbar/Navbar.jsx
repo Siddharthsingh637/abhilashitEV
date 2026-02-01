@@ -51,9 +51,12 @@ export default function Navbar() {
               ))}
             </div>
             <div className="hidden md:flex items-center ml-2">
-              <button className="px-3 py-1.5 text-sm bg-green-800 text-white font-semibold rounded-full hover:shadow transition-all duration-200">
+              <Link
+                href="/contact-us"
+                className="px-3 py-1.5 text-sm bg-green-800 text-white font-semibold rounded-full hover:bg-green-900 transition-colors duration-200"
+              >
                 Contact Us
-              </button>
+              </Link>
             </div>
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center">
@@ -68,26 +71,46 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden pb-6 space-y-2 animate-in fade-in slide-in-from-top-4">
-            {navLinks.map((link) => (
+        {/* Mobile Navigation - smooth open/close animation */}
+        <div
+          className={cn(
+            'md:hidden overflow-hidden transition-all duration-300 ease-out',
+            isOpen ? 'max-h-[320px] opacity-100' : 'max-h-0 opacity-0'
+          )}
+        >
+          <div className="pb-6 pt-1 space-y-1">
+            {navLinks.map((link, i) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="block px-3 py-2.5 text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-colors duration-200"
+                className={cn(
+                  'block px-3 py-2.5 text-base font-medium text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-colors duration-200',
+                  'transition-all duration-300 ease-out',
+                  isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                )}
+                style={isOpen ? { transitionDelay: `${80 + i * 50}ms` } : { transitionDelay: '0ms' }}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
-            <div className="pt-2">
-              <button className="w-full px-3 py-1.5 text-sm bg-green-800 text-white font-semibold rounded-full hover:shadow transition-all duration-200">
-                Contact me
-              </button>
+            <div
+              className={cn(
+                'pt-2 transition-all duration-300 ease-out',
+                isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+              )}
+              style={isOpen ? { transitionDelay: `${80 + navLinks.length * 50}ms` } : { transitionDelay: '0ms' }}
+            >
+              <Link
+                href="/contact-us"
+                className="block w-full text-center px-3 py-2.5 text-sm bg-green-800 text-white font-semibold rounded-full hover:bg-green-900 transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
