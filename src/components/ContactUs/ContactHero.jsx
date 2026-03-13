@@ -1,6 +1,6 @@
 export default function ContactHero() {
   return (
-    <section className="relative w-full h-[60vh] min-h-[320px] md:h-[70vh] flex items-center justify-center bg-cover bg-center overflow-hidden">
+    <section className="relative w-full h-[60vh] min-h-[320px] md:h-[60vh] flex items-center justify-center bg-cover bg-center overflow-hidden">
       {/* Background image - premium EV showroom / electric scooter */}
       <div
         className="absolute inset-0 bg-cover bg-center"

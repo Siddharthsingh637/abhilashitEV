@@ -3,46 +3,49 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import ModelCard from "@/components/Cards/ModelCards";
 
-const models = [
-  {
-    id: 1,
-    name: "Legend DLX",
-    image: "/hero/banner2.avif",
-    priceRange: "₹73,000",
-    trueRange: "95 - 100 km",
-    speed: "42 km/h",
-    colorsAvailable: ["#FF0000", "#0000FF", "gray", "#000000", "#FFD700", ],
-  },
-  {
-    id: 2,
-    name: "Royal",
-    image: "https://ik.imagekit.io/siddharth637/abhilashit/hero/royal-modell.jpeg",
-    priceRange: "₹68,000",
-    trueRange: "95 - 100 km",
-    speed: "25 - 42 km/h",
-    colorsAvailable: ["#FF0000", "#0000FF", "black", "#808080"],
-  },
-  {
-    id: 3,
-    name: "Royal Prime",
-    image: "https://ik.imagekit.io/siddharth637/abhilashit/hero/royal-model.jpeg",
-    priceRange: "₹78,000",
-    trueRange: "95 - 100 km",
-    speed: "25 - 42 km/h",
-    colorsAvailable: ["#FF0000", "#0000FF", "grey", "#000000", "white"],
-  },
-  {
-    id: 4,
-    name: "Rider",
-    image: "https://ik.imagekit.io/siddharth637/abhilashit/hero/rider-model.jpeg",
-    priceRange: "₹63,000",
-    trueRange: "95 - 100 km",
-    speed: "25 - 42 km/h",
-    colorsAvailable: ["#FF0000", "#0000FF", "grey", "#000000"],
-  },
-];
-
 export default function ExploreModels() {
+  const [models, setModels] = useState([]);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+    const controller = new AbortController();
+
+    const fetchModels = async () => {
+      try {
+        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000";
+        const url = `${baseUrl.replace(/\/$/, "")}/api/models`;
+        const res = await fetch(url, { signal: controller.signal });
+        const data = await res.json();
+        const list = Array.isArray(data) ? data : data?.models || [];
+
+        if (!isMounted) return;
+        setModels(
+          list.map((model) => ({
+            id: model.id,
+            name: model.name,
+            image: model.imageUrl,
+            priceRange: model.priceRange,
+            trueRange: model.trueRange,
+            speed: model.speed,
+            colorsAvailable: model.colorsAvailable,
+          }))
+        );
+      } catch (error) {
+        if (error?.name !== "AbortError") {
+          console.error("Failed to load models", error);
+        }
+      }
+    };
+
+    fetchModels();
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+  }, []);
+
   // Use only first 4 models
   const displayModels = models.slice(0, 4);
   
@@ -87,12 +90,9 @@ export default function ExploreModels() {
     setCurrentIndex((prev) => prev + 1);
   }, []);
 
-  const handlePrev = useCallback(() => {
-    setCurrentIndex((prev) => prev - 1);
-  }, []);
-
   // Handle infinite scroll jumps
   useEffect(() => {
+    if (displayModels.length === 0) return;
     // If we've moved past the original cards (position >= 7), jump to start
     if (currentIndex >= displayModels.length + visibleCards) {
       const timer = setTimeout(() => {
@@ -116,9 +116,10 @@ export default function ExploreModels() {
   }, [currentIndex, displayModels.length, visibleCards]);
 
   useEffect(() => {
-    const interval = setInterval(handleNext, 3500);
+    if (displayModels.length === 0 || isPaused) return undefined;
+    const interval = setInterval(handleNext, 2000);
     return () => clearInterval(interval);
-  }, [handleNext]);
+  }, [displayModels.length, handleNext, isPaused]);
 
   // Calculate transform for smooth sliding animation
   const translateX = -(currentIndex * (100 / visibleCards));
@@ -138,7 +139,11 @@ export default function ExploreModels() {
         </div>
 
         {/* Cards carousel */}
-        <div className="relative">
+        <div
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           {/* Carousel Container */}
           <div className="overflow-hidden">
             <div
@@ -161,23 +166,6 @@ export default function ExploreModels() {
             </div>
           </div>
 
-          {/* Navigation Controls */}
-          <div className="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
-            <button
-              onClick={handlePrev}
-              className="rounded-full border-2 border-gray-300 bg-white px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-semibold text-gray-700 shadow-md hover:bg-gray-50 hover:border-emerald-500 active:scale-95 transition-all duration-200"
-              aria-label="Previous models"
-            >
-              ←
-            </button>
-            <button
-              onClick={handleNext}
-              className="rounded-full border-2 border-gray-300 bg-white px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-semibold text-gray-700 shadow-md hover:bg-gray-50 hover:border-emerald-500 active:scale-95 transition-all duration-200"
-              aria-label="Next models"
-            >
-              →
-            </button>
-          </div>
         </div>
       </div>
     </section>

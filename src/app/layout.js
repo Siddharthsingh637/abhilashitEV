@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
         <div id="nav-height-provider-root" />
         <NavHeightProvider />
         {children}
-        <div className="p-4">
+        <div className="">
           <Footer />
         </div>
       </body>

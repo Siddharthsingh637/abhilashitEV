@@ -8,6 +8,7 @@ export default function AboutPage() {
       <AboutHero />
       <AboutIntro />
       <AboutSections />
+    
     </main>
   );
 }
