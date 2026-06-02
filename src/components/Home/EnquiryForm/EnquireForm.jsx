@@ -51,7 +51,7 @@ export default function EnquireForm({ open, onClose }) {
   }, [open]);
 
   // Don't render anything until mounted to prevent hydration mismatch
-  if (!mounted || !open) return null;
+  if (!mounted) return null;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -131,14 +131,14 @@ export default function EnquireForm({ open, onClose }) {
   
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center px-3 sm:px-4">
+    <div className={`fixed inset-0 z-50 flex items-center justify-center px-3 sm:px-4 transition-opacity duration-300 ease-out ${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
       <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-out ${open ? 'opacity-100' : 'opacity-0'}`}
         onClick={onClose}
         aria-hidden="true"
       />
 
-      <div className="relative w-full max-w-sm sm:max-w-2xl rounded-2xl sm:rounded-3xl bg-white shadow-2xl p-4 sm:p-6 md:p-8 max-h-[90vh] overflow-y-auto">
+      <div className={`relative w-full max-w-sm sm:max-w-2xl rounded-2xl sm:rounded-3xl bg-white shadow-2xl p-4 sm:p-6 md:p-8 max-h-[90vh] overflow-y-auto transition-all duration-300 ease-out ${open ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-4'}`}>
         <div className="flex items-start justify-between gap-3 sm:gap-4">
           <div className="flex-1">
             <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-emerald-700">
