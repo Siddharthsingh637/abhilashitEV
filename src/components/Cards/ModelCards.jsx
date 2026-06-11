@@ -50,7 +50,7 @@ export default function ModelCard({ model }) {
         {model.colorsAvailable && model.colorsAvailable.length > 0 && (
           <div className="mb-3 sm:mb-4">
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs text-gray-500 uppercase tracking-wide">Colors</span>
+              {/* <span className="text-xs text-gray-500 uppercase tracking-wide">Colors</span> */}
             </div>
             <div className="flex items-center gap-2 flex-wrap">
               {model.colorsAvailable.map((color, index) => (
@@ -66,7 +66,7 @@ export default function ModelCard({ model }) {
         )}
 
         {/* Specs Grid */}
-        <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-100">
+        <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 ">
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {model.trueRange && (
               <div className="flex flex-col">

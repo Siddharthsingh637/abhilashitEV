@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { requestJson } from "@/lib/api";
 
 export default function ServiceForm({ open, onClose }) {
   const [mounted, setMounted] = useState(false);
@@ -98,20 +99,12 @@ export default function ServiceForm({ open, onClose }) {
     setIsSubmitting(true);
   
     try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/service-booking`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-  
-      const data = await res.json();
-  
-      if (!res.ok || !data.success) {
+      const data = await requestJson("/service-booking", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      if (!data?.success) {
         throw new Error(data.message || "Failed to book service appointment");
       }
   
@@ -143,9 +136,6 @@ export default function ServiceForm({ open, onClose }) {
       onClose?.();
     }
   };
-  console.log("API:", process.env.NEXT_PUBLIC_API_BASE_URL);
-
-
   return (
     <div 
       className={`fixed inset-0 z-50 flex items-center justify-center px-3 sm:px-4 transition-opacity duration-300 ease-out ${
@@ -201,7 +191,7 @@ export default function ServiceForm({ open, onClose }) {
           {success && (
             <div className="rounded-lg sm:rounded-xl bg-emerald-50 border border-emerald-200 px-3 py-2 sm:px-4 sm:py-3">
               <p className="text-xs sm:text-sm text-emerald-800">
-                Service appointment booked successfully! We'll contact you soon.
+                Service appointment booked successfully! We&apos;ll contact you soon.
               </p>
             </div>
           )}

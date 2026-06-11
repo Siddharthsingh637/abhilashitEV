@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { requestJson } from "@/lib/api";
 
 export default function EnquireForm({ open, onClose }) {
   const [mounted, setMounted] = useState(false);
@@ -91,20 +92,12 @@ export default function EnquireForm({ open, onClose }) {
     setIsSubmitting(true);
   
     try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/enquiry`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-  
-      const data = await res.json();
-  
-      if (!res.ok || !data.success) {
+      const data = await requestJson("/enquiry", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+
+      if (!data?.success) {
         throw new Error(data.message || "Failed to send enquiry");
       }
   
@@ -168,7 +161,7 @@ export default function EnquireForm({ open, onClose }) {
           {success && (
             <div className="rounded-lg sm:rounded-xl bg-emerald-50 border border-emerald-200 p-3 sm:p-4">
               <p className="text-sm sm:text-base text-emerald-800 font-medium">
-                ✓ Enquiry submitted successfully! We'll get back to you soon.
+                ✓ Enquiry submitted successfully! We&apos;ll get back to you soon.
               </p>
             </div>
           )}
@@ -297,4 +290,3 @@ export default function EnquireForm({ open, onClose }) {
     </div>
   );
 }
-

@@ -5,7 +5,7 @@ export default function ContactHero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=1920&q=80')`,
+          backgroundImage: `url('https://ik.imagekit.io/siddharth637/abhilashit/image.png')`,
         }}
       />
       {/* Dark gradient overlay: black + dark green tint for readability */}

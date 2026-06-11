@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import ModelCard from "@/components/Cards/ModelCards";
+import { requestJson } from "@/lib/api";
 
 export default function ExploreModels() {
   const [models, setModels] = useState([]);
@@ -13,10 +14,7 @@ export default function ExploreModels() {
 
     const fetchModels = async () => {
       try {
-        const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000";
-        const url = `${baseUrl.replace(/\/$/, "")}/api/models`;
-        const res = await fetch(url, { signal: controller.signal });
-        const data = await res.json();
+        const data = await requestJson("/models", { signal: controller.signal });
         const list = Array.isArray(data) ? data : data?.models || [];
 
         if (!isMounted) return;
@@ -88,7 +86,7 @@ export default function ExploreModels() {
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => prev + 1);
-  }, []);
+  }, [setCurrentIndex]);
 
   // Handle infinite scroll jumps
   useEffect(() => {
