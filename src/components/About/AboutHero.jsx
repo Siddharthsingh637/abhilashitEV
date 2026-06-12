@@ -5,11 +5,11 @@ export default function AboutHero() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80')`,
+          backgroundImage: `url('https://ik.imagekit.io/siddharth637/abhilashit/hero/image.png?updatedAt=1767707169075')`,
         }}
       />
       {/* Dark subtle overlay for text readability */}
-      <div className="absolute inset-0 bg-black/40 z-[1]" />
+      <div className="absolute inset-0 bg-black/70 z-[1]" />
       {/* Centered heading */}
       <div className="relative z-10 text-center text-white px-4 max-w-2xl mx-auto">
         <p className="text-xs uppercase tracking-[0.25em] text-white/80 font-light mb-3">

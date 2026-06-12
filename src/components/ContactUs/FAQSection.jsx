@@ -30,7 +30,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20 text-center">
+    <section id="faq" className="max-w-7xl mx-auto px-6 py-20 text-center">
       <h2 className="text-2xl md:text-3xl font-bold tracking-wide text-gray-900 mb-12">
         Frequently Asked Questions
       </h2>

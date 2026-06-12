@@ -2,7 +2,7 @@
 
 export default function Hero({ onEnquire }) {
   return (
-    <section className="">
+    <section className="" style={{ fontFamily: "var(--font-geist-sans)" }}>
       <div
         className="h-[70vh] sm:h-[80vh] md:h-[90vh] flex items-center justify-center bg-cover bg-center relative px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-16 bg-[url('https://ik.imagekit.io/siddharth637/abhilashit/background.png')] overflow-hidden"
       >

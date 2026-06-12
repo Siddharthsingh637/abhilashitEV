@@ -1,18 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Hero from "./Hero";
 import EnquireForm from "../EnquiryForm/EnquireForm";
 
 export default function HeroWithEnquiry() {
   const [showEnquiry, setShowEnquiry] = useState(false);
-  const hasAutoShownEnquiry = useRef(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (hasAutoShownEnquiry.current || window.scrollY < 860) return;
+    setMounted(true);
+  }, []);
 
-      hasAutoShownEnquiry.current = true;
+  useEffect(() => {
+    if (!mounted) return;
+
+    const handleScroll = () => {
+      // Check if form has already been shown in this session
+      const hasShownEnquiry = sessionStorage.getItem("enquiry_form_shown");
+      if (hasShownEnquiry || window.scrollY < 860) return;
+
+      // Mark as shown in sessionStorage
+      sessionStorage.setItem("enquiry_form_shown", "true");
       setShowEnquiry(true);
     };
 
@@ -22,7 +31,7 @@ export default function HeroWithEnquiry() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [mounted]);
 
   return (
     <>

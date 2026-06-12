@@ -4,6 +4,7 @@ import HeroWithEnquiry from "@/components/Home/Hero/HeroWithEnquiry";
 import ServicebarWithForm from "@/components/Home/Servicebar/ServicebarWithForm";
 import ViewModels from "@/components/Home/ViewModels/ViewModels";
 import SubDealerApply from "@/components/Home/SubDealerApply/SubDealerApply";
+import Reviews from "@/components/Home/Reviews/Reviews";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Brand />
       <ServicebarWithForm />
       <SubDealerApply />
+      <Reviews/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
+import { Geist, Geist_Mono, Nunito_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import NavHeightProvider from "@/components/NavHeightProvider/NavHeightProvider";
@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
+  subsets: ["latin"],
+});
+
+const nunitoSans = Nunito_Sans({
+  variable: "--font-nunito-sans",
   subsets: ["latin"],
 });
 
@@ -58,7 +63,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${nunitoSans.variable} antialiased`}>
         <Navbar />
         {/* NavHeightProvider sets --navbar-height CSS variable based on the rendered navbar */}
         <div id="nav-height-provider-root" />

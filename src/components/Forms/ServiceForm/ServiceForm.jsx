@@ -151,7 +151,7 @@ export default function ServiceForm({ open, onClose }) {
       />
 
       <div 
-        className={`relative w-full max-w-sm sm:max-w-2xl rounded-2xl sm:rounded-3xl bg-white shadow-2xl p-4 sm:p-6 md:p-8 max-h-[90vh] overflow-y-auto transition-all duration-300 ease-out ${
+        className={`relative w-full max-w-sm sm:max-w-2xl rounded-sm sm:rounded-sm bg-white shadow-2xl p-4 sm:p-6 md:p-8 max-h-[90vh] overflow-y-auto transition-all duration-300 ease-out ${
           open 
             ? "opacity-100 scale-100 translate-y-0" 
             : "opacity-0 scale-95 translate-y-4"

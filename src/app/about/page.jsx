@@ -1,6 +1,7 @@
 import AboutHero from "@/components/About/AboutHero";
 import AboutIntro from "@/components/About/AboutIntro";
 import AboutSections from "@/components/About/AboutSections";
+import WhytoChoose from "@/components/About/WhytoChoose";
 
 export default function AboutPage() {
   return (
@@ -8,6 +9,8 @@ export default function AboutPage() {
       <AboutHero />
       <AboutIntro />
       <AboutSections />
+      <WhytoChoose />
+
     </main>
   );
 }
