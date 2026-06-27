@@ -5,6 +5,7 @@ import ServicebarWithForm from "@/components/Home/Servicebar/ServicebarWithForm"
 import ViewModels from "@/components/Home/ViewModels/ViewModels";
 import SubDealerApply from "@/components/Home/SubDealerApply/SubDealerApply";
 import Reviews from "@/components/Home/Reviews/Reviews";
+import ComingSoon from "@/components/Home/ComingSoon/ComingSoon";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <ViewModels />
       <AboutUs />
       <Brand />
+      <ComingSoon/>
       <ServicebarWithForm />
       <SubDealerApply />
       <Reviews/>
