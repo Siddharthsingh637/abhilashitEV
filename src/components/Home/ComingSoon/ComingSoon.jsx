@@ -1,82 +1,53 @@
 "use client";
 
+import React, { useState } from "react";
+
 export default function ComingSoon() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate API call for newsletter subscription
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+      setEmail("");
+    }, 1200);
+  };
+
   return (
-    <section className="relative h-[90vh] min-h-[700px] w-full overflow-hidden">
+    <section className="w-full py-12 sm:py-20 px-4 sm:px-6 md:px-8">
+      <div className="max-w-7xl mx-auto rounded-[32px] sm:rounded-[48px] overflow-hidden flex flex-col lg:flex-row min-h-[500px] lg:h-[600px] relative group">
+        
+        {/* LEFT COLUMN: Launch Copy and Newsletter Form */}
+        <div className="w-full lg:w-1/2 p-6 sm:p-12 lg:p-16 flex flex-col justify-center">
+          <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-emerald-700 mb-3 sm:mb-4 block">
+            Introducing the Next Era
+          </span>
+          
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-neutral-900 tracking-tight leading-[1.1] mb-4 sm:mb-6">
+            Introducing you to the new standard of premium electric performance.
+          </h2>
+          
+          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed mb-6 sm:mb-8 font-normal">
+            We are thrilled to give you an early look at our next-generation electric two-wheeler, built from the ground up to make your daily commute smoother, faster, and completely hassle-free. Engineered for riders who demand power and styling, this upcoming model combines a heavy-duty silent motor with an optimized long-range battery pack and advanced smart controls. It offers effortless acceleration, high-end braking stability, and premium comfort on city streets and open roads alike. The wait is almost over—sign up below to receive exclusive launch updates, early bird booking pricing, and priority delivery slots.
+          </p>          
+        </div>
 
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-center bg-cover scale-105"
-        style={{
-          backgroundImage: `url("https://ik.imagekit.io/siddharth637/abhilashit/ChatGPT%20Image%20Jun%2027,%202026,%2005_56_48%20PM%20(1).png")`,
-        }}
-      />
-
-      {/* Dark Premium Overlay */}
-      <div className="absolute inset-0 bg-black/15" />
-
-      {/* Grey Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-zinc-900/60 via-black/40 to-zinc-800/70" />
-
-      {/* Top Fade */}
-      <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent" />
-
-      {/* Bottom Fade */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent" />
-
-      {/* Content */}
-      <div className="relative z-20 flex h-full items-center justify-center px-6">
-
-        <div className="text-center">
-
-          <p className="mb-5 uppercase tracking-[0.55em] text-zinc-300 text-sm font-light">
-            New Product Launch
-          </p>
-
-          <h1 className="select-none font-black uppercase leading-none text-white">
-            <span
-              className="
-              block
-              text-[4rem]
-              sm:text-[6rem]
-              md:text-[8rem]
-              lg:text-[10rem]
-              xl:text-[12rem]
-              tracking-tight
-              text-transparent
-              [-webkit-text-stroke:2px_rgba(255,255,255,0.9)]
-              "
-            >
-              COMING
-            </span>
-
-            <span
-              className="
-              block
-              -mt-3
-              text-[4rem]
-              sm:text-[6rem]
-              md:text-[8rem]
-              lg:text-[10rem]
-              xl:text-[12rem]
-              tracking-tight
-              text-white
-              drop-shadow-[0_10px_40px_rgba(255,255,255,0.15)]
-              "
-            >
-              SOON
-            </span>
-          </h1>
-
-          {/* <div className="mx-auto mt-10 max-w-xl rounded-full border border-white/15 bg-white/5 px-8 py-4 backdrop-blur-md">
-
-            <p className="text-zinc-300 text-sm md:text-base tracking-wide">
-              Engineering the next generation of electric mobility with
-              innovation, efficiency, and sustainable performance.
-            </p>
-
-          </div> */}
-
+        {/* RIGHT COLUMN: Teaser Image */}
+        <div className="w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-auto relative overflow-hidden flex-shrink-0">
+          <img
+            src="https://ik.imagekit.io/siddharth637/abhilashit/ChatGPT%20Image%20Jul%2012,%202026,%2001_52_06%20PM%20(1).png"
+            alt="Coming Soon Scooter Teaser"
+            className="w-full h-full object-cover "
+            loading="lazy"
+          />
+          {/* Shadow vignette overlay */}
+          <div className="absolute inset-0  pointer-events-none" />
         </div>
 
       </div>
