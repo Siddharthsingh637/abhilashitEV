@@ -41,7 +41,7 @@ export default function ComingSoon() {
         {/* RIGHT COLUMN: Teaser Image */}
         <div className="w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-auto relative overflow-hidden flex-shrink-0">
           <img
-            src="https://ik.imagekit.io/siddharth637/abhilashit/ChatGPT%20Image%20Jul%2012,%202026,%2001_52_06%20PM%20(1).png"
+            src="https://ik.imagekit.io/siddharth637/abhilashit/montra-electric-model.png"
             alt="Coming Soon Scooter Teaser"
             className="w-full h-full object-cover "
             loading="lazy"
